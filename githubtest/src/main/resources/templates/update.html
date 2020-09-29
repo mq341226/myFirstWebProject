@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div style="margin-left: 30%">
+        <!--获取request域中的属性，并进行回显操作-->
+        <form action="/updata" method="post">
+            <input type="hidden" name="id" th:value="${account.id}">
+            姓名：<input type="text" name="name" th:value="${account.name}"><br/>
+            金额：<input type="text" name="money" th:value="${account.money}"><br/>
+            <input type="submit" value="修改">
+        </form>
+
+    </div>
+
+</body>
+</html>

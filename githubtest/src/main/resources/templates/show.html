@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+</head>
+
+<!--<script src="js/jquery-3.3.1.min.js"></script>-->
+<!--<script src="jquery-3.3.1.js"></script>-->
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    <!--单机发送异步请求-->
+    $(function () {
+        //获取所有账户信息
+        $("#findAll").click(function () {
+            //获取所有账户信息
+            $.get("/find",function (data) {
+                var start = '<table class="table-bordered table table-hover">\n' +
+                '            <!--循环打印列表测试-->\n' +
+                '            <thead>\n' +
+                '                <td>Id</td>\n' +
+                '                <td>姓名</td>\n' +
+                '                <td>金额</td>\n' +
+                '            </thead>\n'
+                for (var d of data) {
+                    var m = '<tr><td>'+d.id+'</td><td>'+d.name+'</td><td>'+d.money+'</td></tr>'
+                    start += m;
+                }
+                start += '</table>'
+                // alert(start)
+                //获取showtable元素,向其内增加代码
+                $("#showtable").html(start)
+
+
+            });
+        });
+
+
+    })
+
+
+    /*]]>*/
+</script>
+
+<body>
+    <!--查询所有账户信息-->
+    <button style="float: left" id="findAll" class="btn btn-default" type="submit">查询</button>
+    <!--插入账户信息-->
+    <a style="float: left" class="btn btn-default" href="/insert" role="button">插入</a>
+    <!--修改账户信息-->
+    <a style="float: left" class="btn btn-default" href="/modify" role="button">修改</a>
+    <!--删除账户信息-->
+    <a style="float: left" class="btn btn-default" href="/out" role="button">删除</a>
+
+    <!--查询得到的数据-->
+    <div id="showtable"></div>
+
+
+</body>
+
+</html>

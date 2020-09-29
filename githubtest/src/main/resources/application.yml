@@ -1,18 +1,17 @@
-# 配置数据库连接驱动
+
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc://192.168.18.241:3306/ssm?serverTimezone=UTC
+    url: jdbc:mysql://192.168.18.241:3306/ssm?serverTimezone=UTC
     username: root
     password: root
-  # 配置redis端口和地址
+
   redis:
     host: 192.168.18.241
     port: 6379
 
-# 配置mybatis的mapper关联文件
 mybatis:
-  type-aliases-package: com.mq.githubtest.domain
   mapper-locations: mapper/*.xml
-
-
+  configuration:
+    # 鎺у埗鍙拌緭鍑烘墽琛宻ql
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

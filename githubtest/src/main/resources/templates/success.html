@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+</head>
+
+<!--<script src="js/jquery-3.3.1.min.js"></script>-->
+<!--<script src="jquery-3.3.1.js"></script>-->
+<script th:inline="javascript">
+    $(function () {
+        //设置定时器,3秒后返回index页面
+        setTimeout(returnIndex,3000);
+    });
+    //修改href为index的地址
+    function returnIndex() {
+        location.href = "/index"
+    }
+</script>
+<body>
+    <div>
+        <h1>成功！！！</h1>
+    </div>
+
+</body>
+</html>
